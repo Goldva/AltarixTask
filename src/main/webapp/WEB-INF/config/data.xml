@@ -14,7 +14,7 @@
        <!-- Менеджер транзакций -->
        <bean id="transactionManager"
              class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-              <property name="sessionFactory" ref="sessionFactory" />
+              <property name="sessionFactory" ref="session" />
        </bean>
 
        <!--<bean id="messageSource"-->
@@ -37,19 +37,17 @@
              p:password="makros32"/>
 
        <!-- Настройки фабрики сессий Хибернейта -->
-       <bean id="sessionFactory"
+       <bean id="session"
              class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
               <property name="dataSource" ref="dataSource" />
-              <!--<property name="configLocation">-->
-                     <!--<value>classpath:/hibernate.cfg.xml</value>-->
-              <!--</property>-->
+              <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
               <!--<property name="configurationClass">-->
                      <!--<value>org.hibernate.cfg.AnnotationConfiguration</value>-->
               <!--</property>-->
               <property name="hibernateProperties">
                      <props>
                             <prop key="hibernate.show_sql">true</prop>
-                            <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</prop>
+                            <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
                             <prop key="hibernate.pool_size">1</prop>
                             <prop key="current_session_context_class">thread</prop>
                             <prop key="hibernate.connection.charSet">UTF-8</prop>

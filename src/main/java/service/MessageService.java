@@ -24,7 +24,7 @@ public class MessageService {
     }
 
     @Transactional
-    public Collection getMessages(long id){
+    public Collection getMessages(){
         return messageDAO.getAllMessages();
     }
     @Transactional

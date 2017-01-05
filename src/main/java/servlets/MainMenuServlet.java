@@ -16,13 +16,9 @@ public class MainMenuServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Factory factory = Factory.getInstance();
         MessageDAO messageDAO = factory.getMessageDAO();
-        try {
-            Collection messages = messageDAO.getAllMessages();
-            req.setAttribute("messages", messages);
-            req.getRequestDispatcher("/mainMenu.jsp").forward(req, resp);
+        Collection messages = messageDAO.getAllMessages();
+        req.setAttribute("messages", messages);
+        req.getRequestDispatcher("/mainMenu.jsp").forward(req, resp);
 //            getServletContext().getRequestDispatcher("/mainMenu.jsp").forward(req, resp);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }

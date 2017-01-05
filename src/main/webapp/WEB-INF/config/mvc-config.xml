@@ -10,26 +10,27 @@
 	   http://www.springframework.org/schema/context
 	   http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--<annotation-driven />-->
+    <mvc:annotation-driven />
 
     <!-- context:component-scan This tag will scan @Component, @Repository, @Service, @Controller
          and also resolves @Autowired and @Qualifier -->
     <!--<context:component-scan base-package="mvc" />-->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
 
     <!-- ViewResolver bean config for mapping strings to jsp views -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
         <property name="order" value="1"/>
-        <property name="prefix" value="/WEB-INF/views"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
 
-    <mvc:view-controller path="/login" view-name="/loginView"/>
-    <mvc:view-controller path="/registration" view-name="/registrationView"/>
-    <mvc:view-controller path="/index" view-name="/mainMenu"/>
+    <!--<mvc:view-controllers path="/login" view-name="/loginView"/>-->
+    <!--<mvc:view-controllers path="/registration" view-name="/registrationView"/>-->
+    <!--<mvc:view-controllers path="/index" view-name="/mainMenu"/>-->
 
-    <context:component-scan base-package="/controler"/>
+    <context:component-scan base-package="controllers"/>
 
 
 </beans>

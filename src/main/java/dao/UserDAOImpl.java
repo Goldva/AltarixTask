@@ -2,7 +2,7 @@ package dao;
 
 import data.User;
 import org.hibernate.Session;
-import util.HibernateUtil;
+//import util.HibernateUtil;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -13,7 +13,7 @@ public class UserDAOImpl implements UserDAO {
     public void addUser(User user) throws SQLException {
         Session session = null;
         try {
-            session = HibernateUtil.getSession();
+//            session = HibernateUtil.getSession();
             session.beginTransaction();
             session.save(user);
             session.getTransaction().commit();
@@ -28,7 +28,7 @@ public class UserDAOImpl implements UserDAO {
     public void updateUser(User user) throws SQLException {
         Session session = null;
         try {
-            session = HibernateUtil.getSession();
+//            session = HibernateUtil.getSession();
             session.beginTransaction();
             session.update(user);
             session.getTransaction().commit();
@@ -43,7 +43,7 @@ public class UserDAOImpl implements UserDAO {
     public User getUserById(Long userId) throws SQLException {
         Session session = null;
         try {
-            session = HibernateUtil.getSession();
+//            session = HibernateUtil.getSession();
             session.beginTransaction();
             User user = (User) session.get(User.class, userId);
             session.getTransaction().commit();
@@ -61,7 +61,7 @@ public class UserDAOImpl implements UserDAO {
         Session session = null;
         List users;
         try {
-            session = HibernateUtil.getSession();
+//            session = HibernateUtil.getSession();
             session.beginTransaction();
             users = session.createCriteria(User.class).list();
             session.getTransaction().commit();
@@ -78,7 +78,7 @@ public class UserDAOImpl implements UserDAO {
     public void deleteUser(User user) throws SQLException {
         Session session = null;
         try {
-            session = HibernateUtil.getSession();
+//            session = HibernateUtil.getSession();
             session.beginTransaction();
             session.delete(user);
             session.getTransaction().commit();
