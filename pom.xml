@@ -12,6 +12,7 @@
         <org.hibernate.version>5.2.6.Final</org.hibernate.version>
         <spring.framework.version>4.3.4.RELEASE</spring.framework.version>
         <spring.framework.security.version>4.2.1.RELEASE</spring.framework.security.version>
+        <org.slf4j-version>1.7.22</org.slf4j-version>
 
     </properties>
 
@@ -20,6 +21,12 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -95,10 +102,23 @@
             <artifactId>spring-security-core</artifactId>
             <version>${spring.framework.security.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.4.0</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.framework.version}</version>
+            <exclusions>
+                <!-- Exclude Commons Logging in favor of SLF4j -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+            <version>3.3.1.GA</version>
         </dependency>
     </dependencies>
 
