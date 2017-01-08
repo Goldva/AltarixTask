@@ -1,16 +1,59 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Aleksei
-  Date: 04.01.2017
-  Time: 5:17
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
-  <head>
-    <title></title>
-  </head>
-  <body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Главное меню</title>
+</head>
+<body>
+<jsp:useBean id="messages" class="java.util.ArrayList" scope="request"/>
 
-  </body>
+<table>
+    <tbody>
+    <tr>
+        <th>ID</th>
+        <th>От кого</th>
+        <th>Кому</th>
+        <th>Дата и время</th>
+        <th>Тема</th>
+        <th>Сообщение</th>
+    </tr>
+    <c:forEach items="${messages}" var="mess">
+        <tr onclick="location.href='/login'">
+            <td align="left">${mess.messId}</td>
+            <td align="left">${mess.userFrom.login}</td>
+            <td align="left">${mess.userTo.login}</td>
+            <td align="center">${mess.date}</td>
+            <td align="center">${mess.theme}</td>
+            <td align="left">${mess.message}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<table>
+    <tbody>
+    <tr>
+        <th>Друзья</th>
+    </tr>
+    <c:forEach items="${friends}" var="friend">
+        <tr onclick="location.href='/login'">
+            <td align="left">${friend.userFriend.login}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<%--<script LANGUAGE="JavaScript">--%>
+    <%--<!----%>
+    <%--function enter()--%>
+    <%--{--%>
+    <%--}--%>
+    <%--function register()--%>
+    <%--{--%>
+    <%--}--%>
+    <%--// -->--%>
+<%--</script>--%>
+
+</body>
 </html>

@@ -1,27 +1,75 @@
-<beans:beans xmlns="http://www.springframework.org/schema/security"
-             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-http://www.springframework.org/schema/security
-http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
-       <http access-denied-page="/error403.jsp">
-              <intercept-url pattern="/login*" access="ROLE_USER,ROLE_ANONYMOUS" />
-              <!--<form-login login-page="/login.jsp" default-target-url="/index"-->
-                          <!--authentication-failure-url="/login.jsp?error=true" />-->
-              <!--<logout logout-url="/logout" logout-success-url="/index" />-->
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
 
-              <anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
-              <remember-me />
-       </http>
+    <tlib-version>1.0</tlib-version>
+    <short-name>myshortname</short-name>
+    <uri>http://mycompany.com</uri>
 
-       <authentication-manager>
-              <authentication-provider>
-                     <user-service>
-                            <user name="admin" password="pass" authorities="ROLE_ADMIN,ROLE_USER" />
-                            <user name="user1" password="1111" authorities="ROLE_USER" />
-                     </user-service>
-              </authentication-provider>
-       </authentication-manager>
+    <!-- Invoke 'Generate' action to add tags or functions -->
 
-</beans:beans>
+</taglib>
+        <!--<beans:beans xmlns="http://www.springframework.org/schema/security"-->
+             <!--xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+             <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+<!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--http://www.springframework.org/schema/security-->
+<!--http://www.springframework.org/schema/security/spring-security.xsd">-->
+
+    <!--&lt;!&ndash; auto-com.altarix.config="true" > Automatically registers a login form, BASIC authentication,-->
+ <!--logout services. use-expressions Enables EL-expressions in the access attribute &ndash;&gt;-->
+    <!--<http auto-config="true" use-expressions="true"  >-->
+
+        <!--<intercept-url pattern="/security/**" access="hasRole('ROLE_ADMIN')"/>-->
+        <!--<intercept-url pattern="/index/**" access="hasRole('ROLE_USER')"/>-->
+
+
+        <!--<form-login login-page="/login"-->
+                    <!--username-parameter="j_username"-->
+                    <!--password-parameter="j_password"-->
+                    <!--login-processing-url="/j_spring_security_check"-->
+                    <!--default-target-url="/index"-->
+                    <!--authentication-failure-url="/login?error=true" />-->
+
+        <!--<logout logout-url="/j_spring_security_logout" logout-success-url="/"/>-->
+
+        <!--&lt;!&ndash;Save logged user in cookie with name key='name' &ndash;&gt;-->
+        <!--&lt;!&ndash;<remember-me key="myKey" token-validity-seconds="300"/>&ndash;&gt;-->
+
+        <!--<csrf disabled="true"/>-->
+
+    <!--</http>-->
+
+    <!--&lt;!&ndash;<jdbc-user-com.altarix.users.service id="jdbcUserService" com.altarix.users.data-source-ref="dataSource"&ndash;&gt;-->
+                       <!--&lt;!&ndash;users-by-username-query="SELECT login, password FROM users WHERE login = ?"&ndash;&gt;-->
+                       <!--&lt;!&ndash;authorities-by-username-query= "SELECT login, role FROM users INNER JOIN roles ON (users.role_id = roles.role_id) WHERE login = ? "/>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<authentication-manager alias="authenticationManager">&ndash;&gt;-->
+        <!--&lt;!&ndash;<authentication-provider user-com.altarix.users.service-ref="jdbcUserService"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</authentication-manager>&ndash;&gt;-->
+
+
+
+
+       <!--&lt;!&ndash;<http access-denied-page="/error403.jsp">&ndash;&gt;-->
+              <!--&lt;!&ndash;<intercept-url pattern="/index*" access="ROLE_USER,ROLE_ADMIN" />&ndash;&gt;-->
+              <!--&lt;!&ndash;<form-login login-page="/login.jsp" default-target-url="/index"&ndash;&gt;-->
+                          <!--&lt;!&ndash;authentication-failure-url="/login.jsp?error=true" />&ndash;&gt;-->
+              <!--&lt;!&ndash;<logout logout-url="/logout" logout-success-url="/index" />&ndash;&gt;-->
+              <!--&lt;!&ndash;<remember-me />&ndash;&gt;-->
+       <!--&lt;!&ndash;</http>&ndash;&gt;-->
+
+       <!--<authentication-manager>-->
+              <!--<authentication-provider>-->
+                     <!--<user-service>-->
+                            <!--<user name="admin" password="pass" authorities="ROLE_ADMIN,ROLE_USER" />-->
+                            <!--<user name="user1" password="1111" authorities="ROLE_USER" />-->
+                            <!--<user name="user2" password="2222" disabled="true" authorities="ROLE_USER" />-->
+                     <!--</user-service>-->
+              <!--</authentication-provider>-->
+       <!--</authentication-manager>-->
+
+<!--</beans:beans>-->

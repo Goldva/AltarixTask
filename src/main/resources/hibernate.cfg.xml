@@ -15,8 +15,10 @@
         <!--<property name="show_sql">true</property>-->
         <!--<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>-->
 
-        <mapping class="data.User"/>
-        <mapping class="data.Message"/>
+        <mapping class="com.altarix.users.data.User"/>
+        <mapping class="com.altarix.users.data.Message"/>
+        <mapping class="com.altarix.users.data.Role"/>
+        <mapping class="com.altarix.users.data.Friend"/>
     </session-factory>
 
 </hibernate-configuration>

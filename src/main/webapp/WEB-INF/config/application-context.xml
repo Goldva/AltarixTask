@@ -1,25 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>myshortname</short-name>
+    <uri>http://mycompany.com</uri>
+
+    <!-- Invoke 'Generate' action to add tags or functions -->
+
+</taglib>
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
 
 
-	   http://www.springframework.org/schema/context
-	   http://www.springframework.org/schema/context/spring-context.xsd">
+	   <!--http://www.springframework.org/schema/context-->
+	   <!--http://www.springframework.org/schema/context/spring-context.xsd">-->
 
-    <context:annotation-config />
+    <!--<context:annotation-config />-->
 
-    <context:component-scan base-package="dao" />
-    <context:component-scan base-package="service" />
+    <!--<context:component-scan base-package="com.altarix.users.dao" />-->
+    <!--<context:component-scan base-package="com.altarix.users.service" />-->
 
-    <import resource="data.xml" />
+    <!--<import resource="data.xml" />-->
 
-    <!--<mvc:resources mapping="/resources/**" location="/resources/" />-->
+    <!--&lt;!&ndash;<com.altarix.mvc:resources mapping="/resources/**" location="/resources/" />&ndash;&gt;-->
 
 
-     <!--Файл с настройками безопасности -->
-    <!--<import resource="WEB-INF/config/security.xml" />-->
+     <!--&lt;!&ndash;Файл с настройками безопасности &ndash;&gt;-->
+    <!--<import resource="security.xml" />-->
 
-</beans>
+<!--</beans>-->

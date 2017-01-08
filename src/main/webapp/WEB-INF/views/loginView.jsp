@@ -1,19 +1,39 @@
-﻿<HTML>
-<HEAD>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Форма входа в систему</title>
-</HEAD>
+</head>
+<body>
 
-<BODY>
+<form name="form" action="<c:url value='/login' />" method="post" class="form-signin">
+    <c:if test="${not empty error}">
+        <font size="2" color="red"><b>Неправильный логин или пароль</b></font>
+    </c:if>
 
-<FORM NAME="login" METHOD="POST">
-    Login: <input type="text" name="user" size="10"><br>
-    Password: <input type="password" name="password" size="10"><br>
-    <INPUT TYPE="BUTTON" VALUE="Войти" ONCLICK="enter()">
-    <INPUT TYPE="BUTTON" VALUE="Регистрация" ONCLICK="register()">
-</FORM>
+    <table>
+        <tr>
+            <td align="right"><spring:message code="label.login"/></td>
+            <td><input type="text" name="username" size="10"></td>
+        </tr>
+        <tr>
+            <td align="right"><spring:message code="label.password"/></td>
+            <td><input type="password" name="password" size="10"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                <input type="submit" value="Войти" />
+                <input type="button" value="Регистрация" ONCLICK="register()"/>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}" />
+</form>
 
-<SCRIPT LANGUAGE="JavaScript">
+<script LANGUAGE="JavaScript">
     <!--
     function enter()
     {
@@ -25,6 +45,7 @@
         location.href="/registration"
     }
     // -->
-</SCRIPT>
-</BODY>
-</HTML>
+</script>
+
+</body>
+</html>
